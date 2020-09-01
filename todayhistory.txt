@@ -1,0 +1,269 @@
+    1  yum install epel-release
+    2  yum install ansible
+    3  ansible --version
+    4  history
+    5  ssh-keygen -t rsa
+    6  vi /etc/hosts
+    7  cat /etc/hosts
+    8  ping worker
+    9  vi /etc/hosts
+   10  ping worker
+   11  cat /etc/hosts
+   12  ssh-copy-id -i ~/.ssh/id_rsa.pub root@worker
+   13  ssh root@worker
+   14  history
+   15  ls
+   16  ansible --version
+   17  ansible all -m ping
+   18  cd /etc/ansible/
+   19  ls
+   20  vi hosts
+   21  pwd
+   22  ansible all -m ping
+   23  vi /etc/ansible/hosts
+   24  ansible all -m ping
+   25  ansible --version
+   26  cat /etc/hosts
+   27  vi /etc/hosts
+   28  vi /etc/ansible/
+   29  cd /etc/ansible/
+   30  ls
+   31  cat hosts
+   32  vi /etc/ansible/hosts 
+   33  ansible worker -m ping
+   34  vi /etc/hosts
+   35  vi hosts
+   36  ansible web -m ping
+   37  ansible worker -m ping
+   38  vi hosts 
+   39  vi hosts
+   40  vi ansible.cfg 
+   41  ansible worker -m setup
+   42  ansible worker -m setup | more
+   43  vi hosts 
+   44  ansible  -m setup | more
+   45  clear
+   46  ansible worker -m command -a uptime
+   47  ansible worker -m shell -a uptime
+   48  ansible worker -a uptime
+   49  ansible worker -a "free -m"
+   50  history
+   51  uptime
+   52  ansible worker -a uptime
+   53  cat /etc/shadow
+   54  history
+   55  ansible worker -m file -a "path=/tmp/x state=directory mode=0755"
+   56  ansible all -m group -a "name=weblogic state=present"
+   57  ansible worker -m group -a "name=weblogic state=present"
+   58  ansible worker -m addgroup -a "name=weblogic state=present"
+   59  ansible worker -m user -a "name=weblogic state=present"
+   60  exit
+   61  ansible all -m user -a "name=gopal password=123"
+   62  ansible all -m user -a "name=gopal state=present"
+   63  ssh root@worker
+   64  ansible worker -m group -a "name=weblogic state=present"
+   65  ssh root@worker
+   66  ansible worker -m group -a "name=weblogic state=present"
+   67  ansible worker -m user -a "name=weblogic state=present"
+   68  ansible worker -m user -a "name=weblogic state=p"
+   69  ansible worker -m user -a "name=weblogic state=absent"
+   70  ansible worker -m group -a "name=weblogic"
+   71  ansible worker -m groupadd -a "name=weblogic"
+   72  ansible-doc
+   73  touch /tmp/x
+   74  ansible worker -m copy "src=/tmp/x dest=/tmp/y"
+   75  ansible worker -m file "src=/tmp/x dest=/tmp/y"
+   76  ansible worker -m copy -a  "src=/tmp/x dest=/tmp/y"
+   77  vi /tmp/x
+   78  ansible worker -m copy -a  "src=/tmp/x dest=/home/y"
+   79  ansible worker -m yum "name=httpd state=present"
+   80  ansible worker -m yum -a "name=httpd state=present"
+   81  ansible worker -m service -a "name=httpd state=started"
+   82  ansible worker -m service -a "name=httpd state=started enabled=yes"
+   83  history
+   84  mkdir customer1
+   85  cd customer1/
+   86  touch ansible.cfg
+   87  touch hosts
+   88  ls
+   89  cat ansible.cfg 
+   90  gedit ansible.cfg
+   91  vi ansible.cfg 
+   92  git init
+   93  yum install git
+   94  git config --global user.name "Mona Lisa"
+   95  git config --global user.email "gmail@mona.com"
+   96  git init
+   97  git add .
+   98  git commit -m "ansible.cfg and hosts"
+   99  git remote add origin https://github.com/gopal1409/metlifedevops.git
+  100  git push -u origin master
+  101  vi hosts
+  102  git add .
+  103  git commit -m "hosts"
+  104  git push -u orign master
+  105  git push -u origin master
+  106  vi motd.yaml
+  107  git add .
+  108  git commit -m "yaml"
+  109  git push -u orign master
+  110  git push -u origin master
+  111  clear
+  112  ls
+  113  gedit motd.yaml 
+  114  vi motd.yaml 
+  115  ansible-playbook motd.yaml 
+  116  vi motd.yaml 
+  117  ansible-playbook motd.yaml 
+  118  vi motd.yaml 
+  119  ansible-playbook motd.yaml 
+  120  vi motd.yaml 
+  121  ansible worker -m setup | ansible_distribution
+  122  ansible worker -m setup
+  123  ansible worker -m setup | grep ansible_distribution
+  124  vi motd.yaml 
+  125  ansible-playbook motd.yaml 
+  126  vi motd.yaml 
+  127  ansible-playbook motd.yaml 
+  128  git add .
+  129  git commit -m "new motdplaybook"
+  130  git push -u origin master
+  131  ssh root@worker
+  132  cat /etc/hosts
+  133  ansible worker -m setup
+  134  ansible worker -m setup | grep ansible_distribution
+  135  ls
+  136  vi nginx.yaml
+  137  ansible-playbook nginx.yaml 
+  138  vi nginx.yaml
+  139  ansible-playbook nginx.yaml 
+  140  vi nginx.yaml 
+  141  pwd
+  142  ls
+  143  mkdir files
+  144  cd files/
+  145  vi nginx.conf.centos.patch
+  146  ansible-playbook nginx.yaml 
+  147  ls
+  148  cd ..
+  149  yum install tree
+  150  tree
+  151  ansible-playbook nginx.yaml 
+  152  ls
+  153  mkdir templates
+  154  cd templates/
+  155  vi index.html.j2
+  156  ls
+  157  cd ..
+  158  ls
+  159  cd files/
+  160  ls
+  161  vi nginx-default
+  162  cd ..
+  163  ansible-playbook nginx.yaml 
+  164  cd files/
+  165  ls
+  166  mv nginx-default nginx-default.conf
+  167  cd ..
+  168  ansible-playbook nginx.yaml 
+  169  ls
+  170  cd templates/
+  171  ls
+  172  vi index.html.j2 
+  173  ansible-playbook nginx.yaml 
+  174  cd ..
+  175  ansible-playbook nginx.yaml 
+  176  ls
+  177  cd templates/
+  178  ls
+  179  cd ..
+  180  yum install git
+  181  git
+  182  ls
+  183  ls -la
+  184  rm -rf .git
+  185  ls
+  186  git init
+  187  git status
+  188  ls -la
+  189  cd .git
+  190  ls
+  191  cd ..
+  192  rm -rf .git
+  193  git status
+  194  git init
+  195  git status
+  196  git add motd.yaml 
+  197  git status
+  198  git commit -m "first commit"
+  199  git status
+  200  git log
+  201  history
+  202  git config --global user.name "gopal"
+  203  git config --global user.email "gopal1409@gmail.com"
+  204  git log
+  205  history
+  206  git log
+  207  git remote add origin https://github.com/gopal1409/metliferepo.git
+  208  git push -u origin master
+  209  history
+  210  .gitignore
+  211  touch .gitignore
+  212  vi .gitignore 
+  213  touch auth
+  214  vi .gitignore 
+  215  ls
+  216  git status
+  217  ls
+  218  git add .
+  219  git status
+  220  git commit -m "all files"
+  221  git push -u origin master
+  222  history
+  223  git fetch
+  224  git status
+  225  git branch feature
+  226  git branch
+  227  git checkout feature
+  228  git branch
+  229  history
+  230  git branch
+  231  vi motd.yaml 
+  232  git add .
+  233  git commit -m "changes to feature branch"
+  234  git push -u orign featur
+  235  git push -u orign feature
+  236  git push -u origin feature
+  237  history
+  238  git branch
+  239  git checkout master
+  240  git branch
+  241  git branch --merged
+  242  git merge feature
+  243  git push -u origin master
+  244  git branch -a
+  245  git branch -d feature
+  246  git branch
+  247  git branch -a
+  248  git push --delete feature
+  249  git push origin --delete feature
+  250  git branch -a
+  251  history
+  252  ls
+  253  git fetch
+  254  git pull
+  255  git fetch
+  256  git pull 
+  257  git fetch
+  258  clear
+  259  ls
+  260  vi motd.yaml 
+  261  git diff motd
+  262  git diff motd.yaml 
+  263  git checkout motd.yaml 
+  264  git status
+  265  git diff motd.yaml 
+  266  history
+  267  git reflog
+  268  java --version
+  269  history > todayhistory.txt
